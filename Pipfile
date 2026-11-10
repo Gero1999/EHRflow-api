@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = ">=5.2,<5.3"
+djangorestframework = ">=3.16,<3.17"
+djoser = ">=2.3,<2.4"
+django-filter = ">=25.1,<26"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
+
+[scripts]
+start = "python manage.py runserver 127.0.0.1:8001"
+test = "python manage.py test records"
+check = "python manage.py check"
+migrate = "python manage.py migrate"
+ehr-start = "python manage.py runserver 127.0.0.1:8001"
+ehr-test = "python manage.py test records"
+ehr-migrate = "python manage.py migrate"
