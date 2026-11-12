@@ -1,0 +1,10 @@
+# Generated Python bytecode and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local demo database and SQLite journal files
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-shm
+*.sqlite3-wal
