@@ -33,6 +33,8 @@ pipenv run start
 
 Use `python3.10` instead of `python` if that is your Python 3.10 command. If Pipenv is already installed, skip the first line.
 
+`pipenv run migrate` creates the local `ehrflow/ehrflow.sqlite3` database and its tables. The database is not included in Git. Python cache files (`__pycache__/` and `.pyc`) are also excluded from Git and regenerate automatically.
+
 Open **http://localhost:8001/** and click **Explore the demo**. Fictional patients, staff, encounters, and care assignments are created automatically in your local database. No account, password, database download, or `.env` setup is needed.
 
 **A quick tour:** register a patient and assign a care team; switch to a clinician to write and finalize a note; try an unrelated clinician's access; inspect the denial as a privacy reviewer. **Reset demo** starts a fresh workspace.
