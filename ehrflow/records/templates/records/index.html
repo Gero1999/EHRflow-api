@@ -1,0 +1,67 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EHRFlow API: explore a synthetic clinical workflow with care-team access, clinical documentation, and accountable access.">
+  <title>EHRFlow API · Clinical workspace</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="{% static 'records/app.css' %}">
+  <script src="{% static 'records/app.js' %}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to workspace</a>
+  <!-- Project-drawn geometric icons; no external icon library. -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-defs" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/><path d="M4 12h16M12 4v16"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="7" cy="7" r="2"/><circle cx="17" cy="7" r="2"/><path d="M3 20v-7h8v7M13 20v-7h8v7"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M4 4h16v10l-8 7-8-7ZM8 11l3 3 5-6"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="7"/><path d="M10 11l10 10M14 15l3-3M17 18l3-3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 12h17l-5-5M20 12l-5 5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="9" cy="9" r="5"/><path d="M13 13l7 7"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M2 13h5l2-5 4 10 3-8 2 3h4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 6v6h5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10"/><path d="M7 11V4h10v7M12 15v2"/></symbol>
+  </svg>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="EHRFlow API home"><span class="brand-mark">e<span>+</span></span><span>EHRFlow<span class="brand-api">API</span></span></a>
+    <div class="workspace-label">CLINICAL WORKSPACE</div>
+    <nav aria-label="Main navigation" id="navigation">
+      <button data-route="overview" class="nav-item active"><svg><use href="#i-grid"/></svg>Overview</button>
+      <button data-route="patients" class="nav-item"><svg><use href="#i-users"/></svg>Patients</button>
+      <button data-route="encounters" class="nav-item"><svg><use href="#i-file"/></svg>Encounters</button>
+      <div class="nav-divider"></div>
+      <div class="workspace-label">GOVERNANCE</div>
+      <button data-route="audit" class="nav-item"><svg><use href="#i-shield"/></svg>Access ledger</button>
+      <button data-route="staff" class="nav-item"><svg><use href="#i-key"/></svg>Staff access</button>
+      <button data-route="policy" class="nav-item"><svg><use href="#i-lock"/></svg>Privacy & design</button>
+    </nav>
+    <div class="sidebar-bottom"><span class="demo-dot"></span> Synthetic demo environment<p>Fictional people. Real access rules.</p><span class="build-label">PORTFOLIO EDITION · 01</span></div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="clinic"><span class="clinic-dot"></span>Northstar Clinic <span class="topbar-divider">/</span><span class="muted">Demo workspace</span></div>
+      <div class="topbar-actions"><span class="chip">SYNTHETIC DATA</span><button class="text-button" id="reset-button" hidden>Reset demo</button><button class="avatar" id="logout-button" title="Sign out" aria-label="Sign out" hidden>EF</button></div>
+    </header>
+    <main id="main" tabindex="-1">
+      <div id="welcome" class="welcome">
+        <div class="welcome-copy"><span class="eyebrow">ELECTRONIC HEALTH RECORDS · PORTFOLIO</span><h1>Care has a workflow.<br><span>Access has a reason.</span></h1><p>Follow a patient visit from registration to a finalized note. Explore how each role sees the information it needs—and how every chart access leaves a record.</p><button class="primary large" id="start-button">Explore the demo <svg><use href="#i-arrow"/></svg></button><span class="welcome-footnote">All people and clinical records are fictional. No account required.</span></div>
+        <div class="welcome-visual" aria-label="Demonstration of scoped chart access"><div class="mini-chart"><div class="mini-top"><span class="avatar mint">PA</span><div><strong>Patient Alpha</strong><small>SYN-1001 · Fictional patient</small></div><span class="chip green">Assigned</span></div><div class="mini-line"></div><div class="mini-metric"><svg><use href="#i-heart"/></svg><div><strong>72 <small>bpm</small></strong><span>Sample pulse observation</span></div><span class="sparkline">▁▁▂▁▇▂▁▂▁▁</span></div><div class="permission-row"><svg><use href="#i-shield"/></svg>Care-team access verified<span>✓</span></div><div class="permission-row"><svg><use href="#i-file"/></svg>Note version preserved<span>✓</span></div><div class="permission-row"><svg><use href="#i-clock"/></svg>Read event recorded<span>✓</span></div></div><div class="floating-card"><span class="green-dot"></span>Designed for accountable care</div></div>
+        <div class="welcome-pillars"><div><span>01</span><h2>A complete visit</h2><p>Register, assign, document, and finalize.</p></div><div><span>02</span><h2>Permission with purpose</h2><p>Role, care relationship, and record state.</p></div><div><span>03</span><h2>A visible audit trail</h2><p>Successful actions and denied requests.</p></div></div>
+      </div>
+      <section id="workspace" hidden>
+        <div class="page-heading"><div><div class="eyebrow" id="page-kicker">YOUR WORKSPACE</div><h1 id="page-title">Overview</h1><p id="page-description">A clear view of care, within your role.</p></div><div class="persona-picker"><label for="persona">Exploring as</label><select id="persona" aria-describedby="persona-help"></select><small id="persona-help">Switch fictional staff roles in your private demo.</small></div></div>
+        <div id="role-banner" class="role-banner"></div>
+        <div id="content" aria-busy="false"></div>
+      </section>
+      <footer>Built with Django & REST Framework <span>·</span> Synthetic data only <span>·</span> Educational prototype, not a clinical service</footer>
+    </main>
+  </div>
+  <div id="notification" role="status" aria-live="polite" hidden></div>
+  <dialog id="form-dialog"><div class="dialog-header"><h2 id="dialog-title">Action</h2><button type="button" class="icon-button" id="close-dialog" aria-label="Close dialog">×</button></div><div id="dialog-body"></div></dialog>
+  <noscript><div class="noscript">Enable JavaScript to use this interactive API client. No external scripts are loaded.</div></noscript>
+</body>
+</html>
